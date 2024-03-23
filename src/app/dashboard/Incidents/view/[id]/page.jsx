@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react';
-import IncidentServices from '@/services/incident_service';
+import IncidentServices from '@/services/event_service';
 import styles from '@/app/ui/dashboard/incidents/view/view.module.css';
 
 const IncidentViewPage = ({ params }) => {

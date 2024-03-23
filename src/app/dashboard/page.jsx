@@ -5,7 +5,7 @@
   import cardstyle from "../ui/dashboard/card/card.module.css";
   import styles from "../ui/dashboard/dashboard.module.css";
 import PieChart from "../ui/dashboard/charts/piechart/PieChart";
-import AnalyticsServices from "@/services/incident_service";
+import AnalyticsServices from "@/services/event_service";
 import {useRouter}  from "next/navigation";
 import {AuthContext}  from "../lib/userAuth";
 import { useEffect, useState } from "react";

@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import { useRouter } from "next/navigation";
-import IncidentServices from '@/services/incident_service';
+import IncidentServices from '@/services/event_service';
 import styles from '@/app/ui/dashboard/incidents/updateincident/updateincident.module.css';
 import UserServices from '@/services/user_service';
 import { ToastContainer, toast } from 'react-toastify';

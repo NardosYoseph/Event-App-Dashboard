@@ -2,16 +2,17 @@
 /* .body {
   font-family: 'Your Chosen Font', sans-serif;
 } */
-.container{
-  width: 250px !important;
-  /* position: fixed; */
+.container {
+  width: 250px !important; 
+  height: calc(100vh - 40px);
   top: 0;
   left: 0;
   top: 40px;
   flex-direction: column;
-  /* overflow-y: auto; */
-  }
+  box-sizing: border-box;
+}
   
+
 .user{
   display: flex;
   align-items: center;
@@ -80,6 +81,8 @@
 .logout:hover{
   background-color: #D2E3C8;
 }
+
+
 /* @media (max-width: 768px) {
   .container {
     width: 250px;

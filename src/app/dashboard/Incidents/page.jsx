@@ -5,7 +5,7 @@ import Search from '@/app/ui/dashboard/search/search';
 import styles from '@/app/ui/dashboard/incidents/incident.module.css';
 import Link from 'next/link';
 import PaginationManager from '@/app/lib/pagination_manager';
-import IncidentServices from '@/services/incident_service';
+import IncidentServices from '@/services/event_service';
 import html2pdf from 'html2pdf.js';
 import html2canvas from 'html2canvas';
 

@@ -4,7 +4,7 @@ import styles from "@/app/ui/dashboard/users/addUser/addUser.module.css";
 import ProtectedRoute from "@/app/lib/protecteRoute";
 import UserServices from "@/services/user_service";
 import PaginationManager from '@/app/lib/pagination_manager';
-import IncidentServices from '@/services/incident_service';
+import IncidentServices from '@/services/event_service';
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
