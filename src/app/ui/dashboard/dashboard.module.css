@@ -1,0 +1,25 @@
+.container{
+    display:flex;
+    
+}
+.menu{
+    flex: 1;
+    background-color: var(--bgsoft);
+    padding: 20px;
+    
+}
+.cardsContainer {
+    display: flex;
+    justify-content: flex-start; 
+    margin-bottom: 20px; 
+  }
+
+  .chartsContainer {
+    display: flex;
+    justify-content: space-between; 
+    margin: 20px;
+  }
+  
+.content{
+    flex:3;
+}

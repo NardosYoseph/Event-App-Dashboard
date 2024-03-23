@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    align-items: center;
+    background-color: #e5e7eb;
+    width: max-content;
+    color: black;
+  }
+  
+  .input {
+    background-color: transparent;
+    border: none;
+    color: var(--text);
+    outline: none;
+  }

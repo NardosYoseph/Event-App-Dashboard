@@ -1,0 +1,14 @@
+.barchartContainer {
+    width: 500px; 
+    border-radius: 10%;
+   
+  }
+  .piechartContainer {
+    width: 500px; 
+    padding: 0%;
+    height: 300px; 
+    margin: 10px;
+    margin-left: 80px;
+    border-radius: 10%;
+    justify-content: end; 
+  }

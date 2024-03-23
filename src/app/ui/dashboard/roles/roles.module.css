@@ -1,0 +1,92 @@
+.container {
+    background-color: var(--bgSoft);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+   
+  }
+  
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+   
+  }
+  .form table label{
+   color: #000;
+    width: 100%;
+    margin-right: 10px;
+  }
+  .new-line {
+    white-space: pre;
+  }
+  
+  .form select {
+    height: 80px;
+    width: 300px;
+    padding: 30px;
+    background-color: var(--bg);
+    color: var(--textsoft);
+    border: 2px solid #2e374a;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-right: 20px;
+  }
+  .from table{
+    width: 100%;
+  
+  }
+  
+  .from table td{
+    padding: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    height:100%;
+    width: 300px;
+
+  }
+  .from table tr{
+    padding: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  
+  
+  .from table td input{
+    height:100%;
+    width: 300px;
+    padding: 30px;
+    background-color: var(--bg);
+    color: var(--textsoft);
+    border: 2px solid #2e374a;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-right: 20px;
+  }
+  .from table select {
+    width: 200px;
+    height: 100px;
+    color: #000;
+    gap: 10px;
+    margin-top: 20px;
+    border-color: black;
+  }
+  
+
+  
+  .form button{
+    width: 70%;
+    padding: 30px;
+    background-color: #9fc1dd;
+    color: var(--textsoft);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+  }
+  .form button:hover {
+    background-color: yellow;
+    color: #025AA2; 
+  }

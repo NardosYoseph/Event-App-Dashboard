@@ -1,0 +1,51 @@
+.container {
+  background-color: var(--bgSoft);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form input,
+.form textarea,
+.form select {
+  padding: 30px;
+  background-color: var(--bg);
+  color: var(--textsoft);
+  border: 2px solid #2e374a;
+  border-radius: 5px;
+  margin-bottom: 30px;
+ 
+  /* Set a width for all form inputs */
+}
+.form input,.form select{
+  width: 45%;
+}
+
+
+.form button {
+  width: 100px;
+}
+
+.form textarea {
+  /*width: 100%; /* Override the width specifically for textarea */
+  width: 100%;
+height: 100px;
+}
+
+
+
+.form button {
+  width: 100%;
+  padding: 30px;
+  background-color: #80BCBD;
+  color: var(--textsoft);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

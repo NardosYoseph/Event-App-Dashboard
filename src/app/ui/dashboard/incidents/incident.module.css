@@ -1,0 +1,97 @@
+.container{
+    background-color: var(--bgSoft);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .button{
+    padding: 10px;
+    background-color: #cfe7fa;
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .addButton{
+    padding: 10px;
+    background-color: #025AA2;
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .addButton:hover {
+    background-color: yellow; 
+    color: #025AA2;
+    /* Set the hover background color to yellow */
+  }
+  
+  .table{
+    width: 100%;
+    border-collapse: collapse;
+    flex: 1;
+    margin-top: 60px ;
+    margin-bottom: 5px ;
+    color: var(--textsoft);
+  }
+  
+  .table td{
+    padding: 10px;
+    border: 1px solid black;
+    
+  }
+  .table th{
+  background-color: (--bgsoft);
+  color:var(--textsoft);
+  padding: 10px;
+  border: 1px solid black;
+
+}
+
+.table th {
+  background-color: (--bgsoft);
+  color: var(--textsoft);
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userImage {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--textsoft);
+  border: none;
+  cursor: pointer;
+}
+
+.view {
+  background-color: teal;
+}
+
+.delete {
+  background-color: crimson;
+}
+

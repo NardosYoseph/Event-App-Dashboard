@@ -1,0 +1,56 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4fdff;
+  border-radius: 8px;
+  font-size: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.view {
+  margin-top: 20px;
+}
+
+.view h1 {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.view div {
+  margin-bottom: 15px;
+}
+
+.view strong {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #1a76d2; /* Blue color for strong elements */
+}
+
+.view div {
+  line-height: 1.6;
+}
+
+.error {
+  color: #ff0000;
+  margin-top: 10px;
+}
+.list{
+  color: black;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    max-width: 100%;
+  }
+}
+.button{
+  padding: 10px;
+  background-color: #1a76d2;
+  color: var(--text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}

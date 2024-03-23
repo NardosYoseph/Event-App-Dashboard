@@ -1,0 +1,38 @@
+{
+  "name": "aba_db_incident_tracker_frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "chart.js": "^4.4.1",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.10.1",
+    "jsonwebtoken": "^9.0.2",
+    "jspdf": "^2.5.1",
+    "jwt-decode": "^4.0.0",
+    "next": "^14.0.4",
+    "react": "^18",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18",
+    "react-icons": "^4.11.0",
+    "react-router-dom": "^6.21.1",
+    "react-select": "^5.8.0",
+    "react-toastify": "^10.0.4",
+    "recharts": "^2.10.3",
+    "socket.io-client": "^4.7.2",
+    "use-debounce": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "20.10.5",
+    "@types/react": "18.2.45",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4"
+  }
+}
