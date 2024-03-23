@@ -32,12 +32,13 @@ const LoginForm = () => {
     try {
       console.log(credentials);
       const response = await UserServices.login(credentials);
-      const token = response.access_token;
+      console.log(response);
+      const token = response.token.accessToken;
       console.log(token)
             const refreshToken = response.refresh_token;
             const user = jwt_decode(token);
             client.setAuthorization(token);
-            const role = user.role;
+            const role = user.user.role;
             localStorage.setItem('token', token);
             localStorage.setItem('userEmail', user.email);
             localStorage.setItem('refreshToken', refreshToken);

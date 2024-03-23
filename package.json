@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^1.6.2",
     "chart.js": "^4.4.1",
+    "combined-stream": "^1.0.8",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.10.1",
     "jsonwebtoken": "^9.0.2",

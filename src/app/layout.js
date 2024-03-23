@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({ children }) {
 
-  ApiClient.initialize('http://192.168.4.115:8181/api/v1'); 
+  ApiClient.initialize('https://event-app-back-end.onrender.com/api'); 
   //console.log(ApiClient.getInstance());
   return (
 

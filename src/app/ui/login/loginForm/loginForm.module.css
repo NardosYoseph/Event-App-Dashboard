@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   gap: 30px;
-  color: #025AA2;
+  color: rgb(12, 170, 12);
 }
 
 .form input {
@@ -27,7 +27,7 @@
 .form button {
   width: 100%;
   padding: 30px;
-  background-color:#025AA2;
+  background-color:rgb(3, 134, 3);
   color: var(--text);
 
   border: none;

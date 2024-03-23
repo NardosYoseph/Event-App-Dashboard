@@ -30,19 +30,19 @@ const menuItems = [
         title: "Users",
         path: "/dashboard/users",
         icon: <MdSupervisedUserCircle />,
+      },  
+       {
+        title: "Event Organizers",
+        path: "/dashboard/users",
+        icon: <MdSupervisedUserCircle />,
       },
       {
-        title: "Incidents",
+        title: "Events",
         path: "/dashboard/Incidents",
         icon: <MdDashboard />,
       },
       {
-        title: "Roles",
-        path: "/dashboard/roles",
-        icon: <MdPeople />,
-      },
-      {
-        title: "Ussd Report",
+        title: "Report",
         path: "/dashboard/ussd_report",
         icon: <MdShoppingBag />,
       },
@@ -51,7 +51,7 @@ const menuItems = [
   },
   
   {
-    title: "User",
+    title: "Settings",
     list: [
       {
         title: "Change Password",
@@ -88,7 +88,7 @@ const menuItems = [
           height="50"
         /> */}
         <div className={styles.logoContainer}>
-        <img src="/amharabank.jpg" alt="Company Logo" className={styles.logo} />
+        <img src="/eventlogo.png" alt="Company Logo" className={styles.logo} />
       </div>
       </div>
       <ul className={styles.list}>

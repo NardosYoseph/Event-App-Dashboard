@@ -15,14 +15,12 @@ const AddUserPage = () => {
 
 const router=useRouter();
   const [formData, setFormData] = useState({
-    firstname: '',
-    lastname: '',
+    username: '',
     email: '',
     password: '',
     role: "",
-    managerId:""
   });
-  const user = new User(formData.firstname, formData.lastname,formData.email, formData.password, formData.role,formData.managerId);
+  const user = new User(formData.username,formData.email, formData.password, formData.role);
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -66,25 +64,16 @@ const router=useRouter();
     <div className={styles.container}>
     <ToastContainer />
       <form className={styles.form} onSubmit={handleSubmit}>
-  <input type="text" placeholder="firstname" name="firstname" required onChange={handleChange}/>
-  <input type="text" placeholder="lastname" name="lastname" required onChange={handleChange}/>
+  <input type="text" placeholder="username" name="username" required onChange={handleChange}/>
   <input type="email" placeholder="email" name="email" required onChange={handleChange}/>
   <input type="password" placeholder="password" name="password" required onChange={handleChange}/>
   
   <select name="role" id="Role" value={formData.role} onChange={handleChange}>
     <option value={false}>Role</option>
     <option value="ADMIN">ADMIN</option>
-    <option value="MANAGER">MANAGER</option>
-    <option value="OFFICER">IS_OFFICER</option>
+    <option value="USER">USER</option>
+    <option value="EVENT_ORGANIZER">EVENT_ORGANIZER</option>
   </select>
-  {isOfficer() && (
-  <select name="managerId" id="managerId" value={formData.managerId} onChange={handleChange}>
-            <option value={false}>Select Manager</option>
-            {managers.map(manager => (
-              <option key={manager.id} value={manager.id}>{manager.email}</option>
-            ))}
-          </select>
-  )}
   <button type="submit">Submit</button>
 </form>
 

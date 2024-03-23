@@ -9,7 +9,7 @@ export default class UserServices {
         const client = ApiClient.getInstance();
         //console.log("this is path:",client);
         try{
-            const authenticated = await client.post('/auth/authenticate', credential);
+            const authenticated = await client.post('/user/login', credential);
         console.log('Logged in successfully', authenticated);
 
         return authenticated; 
@@ -33,8 +33,8 @@ export default class UserServices {
     static async getAllUsers() {
         const client = ApiClient.getInstance();
         try{
-            const paginatedData = await client.get('/users/allusers');
-        return paginatedData;
+            const usersData = await client.get('/user/AllUsers');
+        return usersData;
         }
         catch (error) {
             return error;
@@ -66,7 +66,7 @@ export default class UserServices {
         const client = ApiClient.getInstance();
     
         try {
-          const response = await client.post('/users/change-password', credentials,{});
+          const response = await client.post('/user/change-password', credentials,{});
           return response.data; // You might want to return some meaningful data from the backend
         } catch (error) {
           throw new Error('Error changing password: ' + error.message);
@@ -77,7 +77,7 @@ export default class UserServices {
 
         const client = ApiClient.getInstance();
         try{
-              const response = await client.post('/auth/register', user);
+              const response = await client.post('/user/register', user);
         //console.log('user added successfully', response);
 
         return response;

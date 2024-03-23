@@ -1,7 +1,7 @@
 /* Global CSS */
 :root {
   --bg:#f4fdff;
-  --bgsoft:#020D9B;
+  --bgsoft:rgb(12, 170, 12);
   --text:white;
   --textsoft: black;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Adjust values as needed */

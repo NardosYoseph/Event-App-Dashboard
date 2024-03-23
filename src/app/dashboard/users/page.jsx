@@ -18,11 +18,16 @@ const UsersPage = () => {
   const client = UserServices;
   const [pgManager, setPagination] = useState(new PaginationManager());
 
-  const fetchUsers = async (pageNumber) => {
-    const paginatedData = await client.getUsers(pageNumber ?? pgManager.getCurrentPage,pgManager.getTotalItems);
-    pgManager.setData(paginatedData?.data);
-    setPagination(pgManager);
-    const users = pgManager.getData;
+  // const fetchUsers = async (pageNumber) => {
+  //   const paginatedData = await client.getUsers(pageNumber ?? pgManager.getCurrentPage,pgManager.getTotalItems);
+  //   pgManager.setData(paginatedData?.data);
+  //   setPagination(pgManager);
+  //   const users = pgManager.getData;
+  //   setUsers(users);
+  // };
+  const fetchUsers = async () => {
+    const userData = await client.getAllUsers();
+    const users = userData.userList;
     setUsers(users);
   };
   const handleSearch = async (Firstname, pageNumber) => {
@@ -70,11 +75,11 @@ const UsersPage = () => {
       <table className={styles.table}>
         <thead>
           <tr>
-            <td>FirstName</td>
-            <td>LastName</td>
+            <td>Username</td>
             <td>Email</td>
             <td>Role</td>
-            <td>Action</td>
+            <td>Events</td>
+
           </tr>
         </thead>
         <tbody>
@@ -82,14 +87,12 @@ const UsersPage = () => {
     users.map((user) => (
       <tr key={user.id}>
         <td>
-          <div className={styles.user}>{user.firstname}</div>
-        </td>
-        <td>
-          <div className={styles.user}>{user.lastname}</div>
+          <div className={styles.user}>{user.username}</div>
         </td>
         <td>{user.email}</td>
         <td>{user.role}</td>
-        <td>
+        <td>{user.events.length}</td>
+        {/* <td>
           <div className={styles.buttons}>
             <Link href={`/dashboard/users/update/${user.id}`}>
               <button className={`${styles.button} ${styles.view}`}>
@@ -103,7 +106,7 @@ const UsersPage = () => {
               Delete
             </button>
           </div>
-        </td>
+        </td> */}
       </tr>
     ))
   ) : (
