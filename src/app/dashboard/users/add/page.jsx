@@ -18,7 +18,7 @@ const router=useRouter();
     username: '',
     email: '',
     password: '',
-    role: "",
+    role: '',
   });
   const user = new User(formData.username,formData.email, formData.password, formData.role);
   const handleChange = (e) => {
@@ -68,7 +68,7 @@ const router=useRouter();
   <input type="email" placeholder="email" name="email" required onChange={handleChange}/>
   <input type="password" placeholder="password" name="password" required onChange={handleChange}/>
   
-  <select name="role" id="Role" value={formData.role} onChange={handleChange}>
+  <select name="role" id="role" value={formData.role} onChange={handleChange}>
     <option value={false}>Role</option>
     <option value="ADMIN">ADMIN</option>
     <option value="USER">USER</option>
