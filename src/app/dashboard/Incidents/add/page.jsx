@@ -10,9 +10,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { ref, uploadBytes, getDownloadURL, getStorage} from 'firebase/storage';
 
-import { getAuth } from 'firebase/auth';
+import { ref, uploadBytes, getDownloadURL, getStorage} from 'firebase/storage';
+import { getAuth} from 'firebase/auth';
+import { signInAnonymously as signInAnonymouslyFirebase } from 'firebase/auth'; 
+
+
 
 
 const AddIncidentPage = () => {
@@ -32,7 +35,7 @@ const AddIncidentPage = () => {
     price: '',
     availableTickets: '',
     eventOrganizer: '',
-    imageFile: null,
+    image: null,
 
   });
   
@@ -115,7 +118,7 @@ const AddIncidentPage = () => {
           <input
             type="text"
             placeholder="title"
-            name="tile"
+            name="title"
             required
             onChange={handleChange}
           />
@@ -172,41 +175,33 @@ const AddIncidentPage = () => {
     </ProtectedRoute>
   );
 
-async function uploadImage(image, userId) {
-  try {
-    const filename = `${Date.now()}.jpg`; // Use current timestamp for unique filenames
-    const imageRef = ref(storage, `event_images/${filename}`);
-
-    const metadata = {
-      customMetadata: { userId }, // Include user ID as metadata
-    };
-
-    const uploadTask = uploadBytes(imageRef, image, metadata);
-    const snapshot = await uploadTask.on('state_changed',
-      (snapshot) => {
-        // Optional: Handle upload progress (show loading indicator)
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% complete');
-      },
-      (error) => {
-        console.error('Error uploading image:', error);
-      },
-      () => {
+  async function uploadImage(image, userId) {
+    try {
+      const filename = `${Date.now()}.jpg`; // Use current timestamp for unique filenames
+      const imageRef = ref(storage, `event_images/${filename}`);
+  
+      const metadata = {
+        customMetadata: { userId }, // Include user ID as metadata
+      };
+  
+      const uploadTask = uploadBytes(imageRef, image, metadata);
+    const url=  uploadTask.then((snapshot) => {
         console.log('Image uploaded successfully!');
-      }
-    );
-
-    const downloadUrl = await getDownloadURL(snapshot.ref);
-    return downloadUrl;
-  } catch (error) {
-    console.error('Error uploading image:', error);
-    throw error; // Re-throw for error handling in calling code
+        const downloadUrl = snapshot.ref.getDownloadURL();
+        resolve(downloadUrl);
+      })
+      return url;
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      // Handle errors appropriately, e.g., return a default URL or throw an error
+      return null; // Or throw an error for further handling
+    }
   }
-}
+  
 async function signInAnonymously() {
   try {
     const auth = getAuth();
-    const credential = await auth.signInAnonymously();
+    const credential = await signInAnonymouslyFirebase(auth);
 
     if (credential.user) {
       console.log('Signed in anonymously as:', credential.user.uid); // Use user.uid for user ID
