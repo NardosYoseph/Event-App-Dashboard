@@ -36,21 +36,15 @@ export default class IncidentServices {
             return error;
         }
     }
-    static async addIncidents(user_id, formData) {
+    static async addEvent(formData) {
         const client = ApiClient.getInstance();
-        client.setHeader({'Content-Type': 'multipart/form-data'});
-        const params = {
-          user_id: user_id,
-        };
       try{
-        const response = await client.post('/incident/add', formData, params);
+        const response = await client.post('/event/create', formData);
+        
         return response;
       }
       catch (error) {
         return error;
-    }finally {
-        // Reset the Content-Type header to the default value after the request
-        client.setHeader({ 'Content-Type': 'application/json' });
     }
       }
       

@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-native-firebase/app": "^19.1.0",
+    "@react-native-firebase/storage": "^19.1.0",
     "axios": "^1.6.2",
     "chart.js": "^4.4.1",
     "combined-stream": "^1.0.8",
+    "firebase": "^10.9.0",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.10.1",
     "jsonwebtoken": "^9.0.2",
@@ -20,6 +23,7 @@
     "next": "^14.0.4",
     "react": "^18",
     "react-chartjs-2": "^5.2.0",
+    "react-datepicker": "^6.6.0",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.21.1",
