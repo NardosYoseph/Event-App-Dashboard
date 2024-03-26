@@ -2,13 +2,14 @@ import ApiClient from "@/app/lib/HttpRequestManager/api_client";
 
 const getIncidentPath = "/incident/list";
 
-export default class IncidentServices {
+export default class EventServices {
 
-    static async getIncidents(page, size) {
+    static async getEvents() {
         const client = ApiClient.getInstance();
         try{
-          const paginatedData = await client.getPaginated(getIncidentPath, {}, page, size);
-            return paginatedData;
+          const events = await client.get('/event/allEvents');
+          console.log(events);
+            return events;
         }
         catch (error) {
           return error;
