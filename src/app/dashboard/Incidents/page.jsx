@@ -8,7 +8,8 @@ import PaginationManager from '@/app/lib/pagination_manager';
 import EventServices from '@/services/event_service';
 import html2pdf from 'html2pdf.js';
 import html2canvas from 'html2canvas';
-
+import cardStyles from "@/app/ui/dashboard/card/card.module.css"
+import cardContainerStyles from "@/app/ui/dashboard/dashboard.module.css";
 import jsPDF from 'jspdf';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
 //import Select from 'react-select'; // Import react-select
@@ -179,6 +180,7 @@ const IncidentPage = () => {
           <button className={styles.addButton}>Create New</button>
         </Link>
       </div>
+     
       <div className="print">
         <table className={styles.table}>
           <thead>
@@ -213,39 +215,31 @@ const IncidentPage = () => {
                     <td>{event.date}</td>
                     <td>{event.time}</td>
                     <td>{event.price}</td> 
-                    <td>{event.availbleTickets}</td> 
-                    <td>{event.attendees}?{event.attendees.length}:0</td> 
+                    <td>{event.availableTickets}</td> 
+                    <td>{event.attendees.length}</td> 
                 
                    
                     <td>
                       <div>
-                        {event.image && (
-                          <button className={`${styles.button}`} onClick={() => toggleImageVisibility(event.id)}>
-                            {visibleImageId === event.id ? <FaEyeSlash /> : <FaEye />}
-                          </button>
-                        )}
-                        {event.image && visibleImageId === event.id && (
-                          <img
-                            src={`data:image/png;base64,${event.image}`}
-                            alt={`Image for ${event.title}`}
-                            style={{ maxWidth: '100px', cursor: 'pointer' }}
-                            onClick={() => toggleImageVisibility(event.id)}
-                          />
-                        )}
+                         <img
+  src={event.image}  
+  alt={`Image for ${event.title}`}
+  style={{ maxWidth: '100px', cursor: 'pointer' }}
+/>
                       </div>
                     </td>
                     <td>
                       <div className={styles.buttons}>
-                        <Link href={`/dashboard/Incidents/update/${incident.id}`}> 
+                        <Link href={`/dashboard/Incidents/update/${event.id}`}> 
                           <button className={`${styles.button} ${styles.view}`}>Update</button>
                         </Link> 
-                        <Link href={`/dashboard/Incidents/view/${incident.id}`}> 
+                        <Link href={`/dashboard/Incidents/view/${event.id}`}> 
                           <button className={`${styles.button} ${styles.view}`}>View</button>
                         </Link>
                         {/* <button className={`${styles.button} ${styles.delete}`} onClick={() => handleDelete(incident.id)}>Delete</button> */}
                       </div>
                     </td>
-                    {/* <td>{incident.comment}</td> */}
+                    
                   </tr>
                 );
               })
@@ -257,6 +251,19 @@ const IncidentPage = () => {
           </tbody>
         </table>
       </div>
+      {/* {Array.isArray(events) && events.length > 0 ? (
+              events.map((event,index) => {
+                const key = event.id || index;
+                return(
+                <div  key={key} className={cardContainerStyles.cardsContainer}>
+      <div className={cardStyles.card}>
+      <h3>{event.title}</h3>
+      <p>{event.date}</p>
+      <p>{event.price}</p>
+    </div>
+    </div>);
+    })):<p>No Incidents found</p>} */}
+   
       {/* <div>
         <Pagination pgManager={pgManager} handlePageChange={handlePageChange} />
       </div> */}

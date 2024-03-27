@@ -34,13 +34,46 @@ class ApiClient {
       error => Promise.reject(error)
     );
 
+
+    
     this.axiosInstance.interceptors.response.use(
       response => {
         console.log('Response:', response);
         return response;
       },
-      error => Promise.reject(error)
+      error => {
+        console.error('Response Error:', error.response);
+        if (error.response.status === 401) {
+          // Perform token refresh here
+          return this.handleTokenRefresh(error);
+        }
+        return Promise.reject(error);
+      }
     );
+  }
+  async handleTokenRefresh(error) {
+    try {
+      const newAccessToken = await this.refreshToken();
+
+      // Retry the original request with the new access token
+      const originalRequest = error.config;
+      originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+      return this.axiosInstance(originalRequest);
+    } catch (refreshError) {
+      console.error('Error refreshing token:', refreshError);
+      throw refreshError;
+    }
+  }
+  async refreshToken(refreshToken) {
+    try {
+      const response = await this.get("/user/refresh",{'refreshToken': refreshToken} );
+      const data = jsonDecode(response.body);
+      const newAccessToken = data['accessToken'];
+      localStorage.setItem('token', newAccessToken);
+      return newAccessToken;
+    } catch (error) {
+      throw this.handleError(error);
+    }
   }
   setHeader(headers) {
     this.axiosInstance.defaults.headers = {

@@ -39,7 +39,7 @@ const AddIncidentPage = () => {
 
   });
   
-  const [imageUrl, setImageUrl] = useState(null);
+  const [imageUrl, setImageUrl] = useState();
   const [errorMessage, setErrorMessage] = useState('');
   useEffect(() => {
     const fetchUsers = async () => {
@@ -71,9 +71,11 @@ const AddIncidentPage = () => {
     }
   }
   
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     const selectedImage = e.target.files[0];
-    setImageUrl(selectedImage);
+    const userId = await signInAnonymously();
+    const uploadedImageUrl = await uploadImage(selectedImage, userId);
+    setImageUrl(uploadedImageUrl);
 
   };
   const [minDate, setMinDate] = useState(getCurrentDate());
@@ -93,9 +95,10 @@ const AddIncidentPage = () => {
 
   const handleSubmit = async (e) => {
      e.preventDefault();
-     const imageUrl = await handleUploadImage();
+    await handleUploadImage();
     // Update the formData object with the image URL
     formData.image = imageUrl;
+    console.log(imageUrl)
  
     const response = await eventClient.addEvent(formData);
     console.log("Here is response,", response)
@@ -111,7 +114,7 @@ const AddIncidentPage = () => {
     }
   };
   return (
-    <ProtectedRoute allowedRoles={['ADMIN']}>
+    <ProtectedRoute allowedRoles={['EVENT_ORGANIZER']}>
       <div className={styles.container}>
         <ToastContainer />
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -185,12 +188,17 @@ const AddIncidentPage = () => {
       };
   
       const uploadTask = uploadBytes(imageRef, image, metadata);
-    const url=  uploadTask.then((snapshot) => {
-        console.log('Image uploaded successfully!');
-        const downloadUrl = snapshot.ref.getDownloadURL();
-        resolve(downloadUrl);
-      })
-      return url;
+    // const url=  uploadTask.then((snapshot) => {
+    //     console.log('Image uploaded successfully!',snapshot.ref);
+    //     const downloadUrl = snapshot.ref.getDownloadURL();
+    //     resolve(downloadUrl);
+    //   })
+      const snapshot = await uploadTask; // Wait for upload completion
+console.log("snapshot",snapshot);
+      // Ensure compatibility with older Firebase versions:
+      const downloadUrl = await getDownloadURL(snapshot.ref);
+      console.log(downloadUrl)
+      return downloadUrl;
     } catch (error) {
       console.error('Error uploading image:', error);
       // Handle errors appropriately, e.g., return a default URL or throw an error
