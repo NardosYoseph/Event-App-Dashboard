@@ -53,7 +53,7 @@ class ApiClient {
   }
   async handleTokenRefresh(error) {
     try {
-      const newAccessToken = await this.refreshToken();
+      const newAccessToken = await this.refreshToken(  localStorage.getItem('token'));
 
       // Retry the original request with the new access token
       const originalRequest = error.config;
@@ -66,10 +66,11 @@ class ApiClient {
   }
   async refreshToken(refreshToken) {
     try {
-      const response = await this.get("/user/refresh",{'refreshToken': refreshToken} );
+      const response = await this.get("/user/refresh",{},{'refreshToken': refreshToken} );
       const data = jsonDecode(response.body);
       const newAccessToken = data['accessToken'];
       localStorage.setItem('token', newAccessToken);
+      console.log("token refreshed",newAccessToken);
       return newAccessToken;
     } catch (error) {
       throw this.handleError(error);
