@@ -66,7 +66,7 @@ class ApiClient {
   }
   async refreshToken(refreshToken) {
     try {
-      const response = await this.get("/user/refresh",{},{'refreshToken': refreshToken} );
+      const response = await this.post("/user/refresh",{'refreshToken': refreshToken} );
       const data = jsonDecode(response.body);
       const newAccessToken = data['accessToken'];
       localStorage.setItem('token', newAccessToken);

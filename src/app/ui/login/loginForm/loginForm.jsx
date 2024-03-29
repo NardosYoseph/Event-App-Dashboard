@@ -37,10 +37,15 @@ const LoginForm = () => {
       console.log(token)
             const refreshToken = response.refresh_token;
             const user = jwt_decode(token);
+            console.log("decoded token",user)
             client.setAuthorization(token);
             const role = user.user.role;
             localStorage.setItem('token', token);
-            localStorage.setItem('userEmail', user.email);
+            localStorage.setItem('userEmail', user.user.email);
+            console.log("userEmail",user.user.email);
+
+             localStorage.setItem('userId', user.user._id);
+             console.log("userID",user.user._id);
             localStorage.setItem('refreshToken', refreshToken);
            localStorage.setItem('role', role);
             // console.log("here this is :",role);

@@ -40,6 +40,16 @@ export default class UserServices {
             return error;
         }
     }
+    static async getEventOrganizers() {
+        const client = ApiClient.getInstance();
+        try{
+            const eventOrganizers = await client.get('/user/eventOrganizers');
+        return eventOrganizers;
+        }
+        catch (error) {
+            return error;
+        }
+    }
 
     // static async getUsersSearch(firstname, page, size) {
     //     const queryParam = `Firstname=${firstname}`

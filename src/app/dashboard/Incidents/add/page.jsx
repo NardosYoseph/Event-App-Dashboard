@@ -26,6 +26,8 @@ const AddIncidentPage = () => {
   const eventClient = EventServices;
   const [pgManager, setPagination] = useState(new PaginationManager());
   const [users, setUsers] = useState([]);
+  const eventOrganizerId= localStorage.getItem('userId');
+  console.log("eventOrganizrId",eventOrganizerId);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -34,7 +36,8 @@ const AddIncidentPage = () => {
     time: '',
     price: '',
     availableTickets: '',
-    eventOrganizer: '',
+    eventOrganizer: eventOrganizerId,
+    attendee:[],
     image: null,
 
   });

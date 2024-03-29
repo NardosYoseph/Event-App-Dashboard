@@ -9,7 +9,7 @@ const LoginPage = () => {
   return (
     <div className={styles.container}>   
       <LoginForm/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
    
   );

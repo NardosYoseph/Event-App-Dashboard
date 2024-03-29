@@ -33,7 +33,7 @@ const menuItems = [
       },  
        {
         title: "Event Organizers",
-        path: "/dashboard/users",
+        path: "/dashboard/eventOrganizers",
         icon: <MdSupervisedUserCircle />,
       },
       {
